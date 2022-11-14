@@ -1,0 +1,34 @@
+<MyScreen>
+    MDToolbar:
+        left_action_items: [["arrow-left"]]
+        elevation: 8
+        pos_hint: {"top": 1}
+
+    BoxLayout:
+        padding: [0, 100, 0, 100]
+        spacing: 20
+        orientation: 'vertical'
+        MDLabel:
+            text: "Selecione o País"
+            halign: 'center'
+            bold: True
+            font_size: '35sp'
+            #font_name: 'fontes/Roboto-Black.ttf'
+
+        MDRectangleFlatButton:
+            pos_hint: {"center_x": .5}
+            size_hint_x: .5
+            font_size: "90sp"
+            Image:
+                source: 'Icones/Bandeira-Brasil.ico'
+                size_hint_y: None
+                width: 120
+
+        MDRectangleFlatButton:
+            pos_hint: {"center_x": .5}
+            size_hint_x: .5
+            font_size: "90sp"
+            Image:
+                source: 'Icones/Bandeira-Equador.ico'
+                size_hint_y: None
+                width: 120

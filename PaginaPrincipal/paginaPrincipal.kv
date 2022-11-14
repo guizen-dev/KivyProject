@@ -1,0 +1,152 @@
+<PaginaPrincipal>
+    MDBottomNavigation:
+        id: bottom_nav
+        #Jogar
+        MDBottomNavigationItem:
+            
+            name: 'principal'
+            text: 'Jogar'
+            icon: 'home-circle-outline'
+            id: principal
+
+            Screen:
+                MDNavigationLayout:
+                    ScreenManager:
+                        Screen:
+                            MDBoxLayout:
+                                orientation: 'vertical'
+                                MDToolbar:
+                                    left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+                                    elevation: 8
+
+                                Widget:
+
+                            BoxLayout:
+                                spacing: 40
+                                orientation: 'vertical'
+                                padding: 0, 120, 0, 70
+                                size: root.width, root.height
+                                BoxLayout:
+                                    orientation: 'vertical'
+                                    padding: 0, 0, 0, 40
+
+                                    #Label Jogar
+                                    MDLabel:
+                                        text: "Título"
+                                        halign: 'center'
+                                        bold: True
+                                        font_size: '35sp'
+                                    #FONTE ROBOTO BLACK
+                                        #font_name: 'fontes/Roboto-Black.ttf'
+                                BoxLayout:
+                                    orientation: 'vertical'
+                                    padding: 0, 0, 0, 0
+
+                                    #Logo Jogo
+                                    MDIconButton:
+                                        icon:
+                                        pos_hint: {"center_x": .5}
+                                        user_font_size: "120sp"
+                                BoxLayout:
+                                    spacing: 10
+                                    orientation: 'vertical'
+                                    padding: 0, 0, 0, 30
+                                    size: root.width, root.height
+
+                                    #Botão Jogar
+                                    MDFillRoundFlatButton:
+                                        text: 'Iniciar o Quiz'
+                                        pos_hint: {'center_x': .5}
+                                        size_hint_x: .8
+                    
+                    MDNavigationDrawer:
+			            id:nav_drawer
+                        opening_transition:'out_bounce'
+                        opening_time:0.5
+                        closing_transition:'in_out_elastic'
+                        closing_time:0.5
+                        orientation: 'vertical'
+                        MDToolbar:
+                            pos_hint: {"top": 1}
+                            title: "Configurações"
+                            left_action_items: [["cog"]]
+                        MDBoxLayout:
+                            orientation: 'vertical'
+                            padding: 0, 0, 0, 350
+                            MDBoxLayout:
+                                orientation: 'horizontal'
+                                padding: 85, 0, 25, 0
+                                MDLabel:
+                                    text: "Idioma"
+                                    #font_name: 'fontes/Roboto-Black.ttf'
+                                    font_size: '28sp'
+                                    bold: True
+                                MDIcon:
+                                    icon: "translate"
+                                    pos_hint: {"center_x": .5}
+                                    badge_font_size: "35sp"
+
+                            MDRectangleFlatIconButton:
+                                icon: "translate"
+                                size_hint_x: 1
+                                text: 'Português'
+
+                            MDRectangleFlatIconButton:
+                                icon: "translate"
+                                size_hint_x: 1
+                                text: 'Espanhol'
+
+
+
+        #Perfil
+        MDBottomNavigationItem:
+            name: 'screen 3'
+            text: 'Perfil'
+            icon: 'account-circle-outline'
+            id: perfil
+
+            MDToolbar:
+                left_action_items: [["arrow-left", lambda x: bottom_nav.switch_tab('principal')]]
+                elevation: 7
+                pos_hint: {"top": 1}
+                #adaptive_height: True
+
+            ##########Tadashi###########
+
+        #Sobre nós
+        MDBottomNavigationItem:
+            name: 'screen 4'
+            text: 'Sobre nós'
+            icon: 'book-information-variant'
+
+            MDToolbar:
+                left_action_items: [["arrow-left", lambda x: bottom_nav.switch_tab('principal')]]
+                elevation: 7
+                pos_hint: {"top": 1}
+                adaptive_height: True
+
+            BoxLayout:
+                orientation: 'vertical'
+                padding: 25, 0, 25, 5
+                spacing: 10
+                MDLabel:
+                    text: "Sobre nós"
+                    halign: 'center'
+                    bold: True
+                    font_size: '35px'
+                    #font_name: 'fontes/Roboto-Black.ttf'
+                ScrollView:
+                    do_scroll_x: False
+                    do_scroll_y: True
+                    size: (self.parent.width+50, self.parent.height-100)
+                    MDLabel:
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                        halign: 'center'
+                        bold: True
+                        font_size: '18sp'
+                        #font_name: 'fontes/Roboto-Light.ttf'
+                
+                    
+                        

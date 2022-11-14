@@ -1,0 +1,106 @@
+<Dica>
+
+<MyScreen>
+    on_enter: root.on_enter
+    id: tela
+    MDBoxLayout:
+        id: layout
+        orientation: "vertical"
+        padding: [0, 0, 0, 0,]
+        MDToolbar:
+            elevation: 10
+            #title: "MDToolbar"
+            #anchor_title: "center"
+            left_action_items: [["arrow-left"]]
+        #PRINCIPAL 1
+        MDBoxLayout:
+            orientation: "vertical"
+            MDBoxLayout:
+                orientation: "horizontal"
+                padding: [30, 0, 30, 0,]
+
+                MDLabel:
+                    text: "Pergunta 1/10"
+                    #font_name: 'fontes/Roboto-Black.ttf'
+                    #color: 224/255.0, 224/255.0, 224/255.0, 1
+
+            MDBoxLayout:
+                orientation: "horizontal"
+                padding: [30, 0, 30, 115,]
+
+                MDProgressBar:
+                    orientation: "horizontal"
+                    value: 10
+
+            MDBoxLayout:
+                padding: [30, 0, 30, 130]
+                orientation: "vertical"
+                MDLabel:
+                    id: pergunta_principal
+                    text: root.Pergunta
+
+        #LAYOUT PRINCIPAL 2
+        MDBoxLayout:
+            id: layoutp2
+            orientation: "vertical"
+            padding: [00, 90, 00, 00]
+            MDBoxLayout:
+                orientation: "vertical"
+                MDBoxLayout:
+                    orientation: "vertical"
+                    padding: [30, 0, 30, 20]
+                    spacing: 10
+
+                    MDRoundFlatIconButton:
+                        id: resposta_a
+                        icon: "alpha-a-circle"
+                        text: root.Resposta[0]
+                        pos_hint: {"center_x": .5}
+                        size_hint_x: 1
+                        on_release: root.resposta(resposta_a)
+                        line_width: 2
+
+                    MDRoundFlatIconButton:
+                        id: resposta_b
+                        icon: "alpha-b-circle"
+                        text: root.Resposta[1]
+                        pos_hint: {"center_x": .5}
+                        size_hint_x: 1
+                        on_release: root.resposta(resposta_b)
+                        line_width: 2
+
+                    MDRoundFlatIconButton:
+                        id: resposta_c
+                        icon: "alpha-c-circle"
+                        text: root.Resposta[2]
+                        pos_hint: {"center_x": .5}
+                        size_hint_x: 1
+                        on_release: root.resposta(resposta_c)
+                        line_width: 2
+
+                    MDRoundFlatIconButton:
+                        id: resposta_d
+                        icon: "alpha-d-circle"
+                        text: root.Resposta[3]
+                        pos_hint: {"center_x": .5}
+                        size_hint_x: 1
+                        on_release: root.resposta(resposta_d)
+                        line_width: 2
+            MDBoxLayout:
+                orientation: "vertical"
+                padding: [0, 50, 0, 20]
+                MDBoxLayout:
+                    orientation: "vertical"
+                    MDRaisedButton:
+                        id: BotaoInferior
+                        elevation: 8
+                        text: "Pular"
+                        pos_hint: {"center_x": .5}
+                        on_release: root.PularQuestao()
+                MDBoxLayout:
+                    orientation: "vertical"
+                    padding: [290, 0, 0, 00]
+                    MDFloatingActionButton:
+                        icon: "lightbulb-on"
+                        md_bg_color: app.theme_cls.primary_color
+                        on_release: root.abrir_dica()
